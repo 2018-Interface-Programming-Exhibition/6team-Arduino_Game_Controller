@@ -24,7 +24,7 @@
 #define NUNCHUK_DISABLE_ENCRYPTION
 
 // Print debug information instead of a CSV stream to the serial port
-// #define NUNCHUK_DEBUG
+#define NUNCHUK_DEBUG
 
 // The Nunchuk I2C address
 #define NUNCHUK_ADDRESS 0x52
