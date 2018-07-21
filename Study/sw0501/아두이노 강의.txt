@@ -1,1 +1,5 @@
-.
+void setup : 처음시작할때 한번만 실행
+void loop : 무한반복
+pinmode : 변수가 어떻게 사용될지 설정함 (출력 : output // 입력 : input, ??)
+digitalwrite : 변수의 전원을 조정 (high : on // low : off)
+delay : 함수간에 지연시간 설정
