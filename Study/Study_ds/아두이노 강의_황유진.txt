@@ -1,0 +1,104 @@
+함수정리
+자세한 설명 https://www.arduino.cc/reference/en/
+
+
+    ▶Digital I/O 디지털 입출력
+digitalRead(pin) :
+   지정된 디지털 핀(pin)에서 값(HIGH or LOW )을 읽습니다.
+digitalWrite(pin,value) :
+   지정된 디지털 핀(pin,)에 값(,value)(HIGH or LOW )을 씁니다.
+pinMode(pin, mode) :
+    지정된 디지털 핀(pin,)을 입력(INPUT,INPUT_PULLUP) 또는 출력(OUTPUT)으로 동작하도록 선언합니다.
+***************INPUT,INPUT_PULLUP차이 알기
+          INPUT_PULLUP은 저항이 추가된것 같음.
+
+
+    ▶Analog I/O 아날로그 입출력
+analogRead(pin) :
+    지정된 아날로그 핀(pin)으로부터 값(int/0~1023)을 읽어냅니다.
+analogReference(type) :
+    아날로그 입력에 사용되는 기준 전압을 어떠한 것을 사용할 지 정하는데 사용됩니다. (즉 아날로그 입력 핀에 입력되는 값의 최고 값을 설정할 때 사용합니다)
+    type의 종류 DEFAULT, INTERNAL, INTERNAL1V1, INTERNAL2V56 혹은 EXTERNAL 
+    [출처] 아날로그 I/O 기능들: analogReference|작성자 과객
+    https://blog.naver.com/msyang59/220837373805
+***************이해안감
+analogWrite(pin, value) :
+    아날로그 값 ( PWM 파형 )(int/0~255)을 핀에 씁니다 . 다양한 밝기로 LED를 켜거나 다양한 속도로 모터를 구동하는 데 사용할 수 있습니다.
+
+
+****************모름
+   ▶Zero, Due & MKR Family Arduino Due, Zero 및 MKR 제품군
+analogReadResolution(bits) :
+    Arduino Due, Zero 및 MKR 제품군을위한 Analog API의 확장입니다.
+analogWriteResolution(bits) :
+    Arduino Due의 아날로그 API를 확장 한 것입니다.
+
+
+    ▶Advanced I/O 고급입출력
+noTone() 
+pulseIn() 
+pulseInLong() 
+shiftIn() 
+shiftOut() 
+tone() 
+
+
+    ▶Time
+delay() 
+delayMicroseconds() 
+micros() 
+millis() 
+
+
+    ▶Math
+abs() 
+constrain() 
+map() 
+max() 
+min() 
+pow() 
+sq() 
+sqrt() 
+
+
+    ▶Trigonometry
+cos() 
+sin() 
+tan() 
+
+
+    ▶Characters
+isAlpha() 
+isAlphaNumeric() 
+isAscii() 
+isControl() 
+isDigit() 
+isGraph() 
+isHexadecimalDigit() 
+isLowerCase() 
+isPrintable() 
+isPunct() 
+isSpace() 
+isUpperCase() 
+isWhitespace() 
+
+
+    ▶Random Numbers
+random() 
+randomSeed() 
+Bits and Bytes
+bit() 
+bitClear() 
+bitRead() 
+bitSet() 
+bitWrite() 
+highByte() 
+lowByte() 
+
+
+    ▶External Interrupts
+attachInterrupt() 
+detachInterrupt() 
+Interrupts
+interrupts() 
+noInterrupts() 
