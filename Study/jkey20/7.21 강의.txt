@@ -1,0 +1,22 @@
+변수, for문 이해하기
+
+delay 숫자 하나씩바꾸는거 -> time이라는 변수를 사용하면 time만 수정하면 됨
+
+delay(1000); ->int time=1000; 
+	       delay(time);
+
+for문을 쓰는이유 -> LED가 많아지면 pinMode를 계속해서 칠 수없음 그래서 for문을 사용해서 쉽게 사용
+
+for(int i=13; i>8; i--){
+
+pinMode(i,OUTPUT); //i는 i에 해당하는 숫자핀
+}
+
+시리얼 통신
+
+Serial.begin(x); // 시리얼 통신을 연다
+Serial.available() // 시리얼 통신이 되고있는지 체크
+Serial.println() // 아두이노에서 컴퓨터에 보낼 값을 전달
+Serial.read() // 시리얼에서 리드한 값을 보내라
+void serialEvent() // *심화* 시리얼 이벤트를 선언하면 시리얼이 동작할때마다 해당 시리얼 이벤트가 호출된다
+시리얼에 숫자값을 줄때 아두이노에서 잡아주지 않으면 예를들어 10이 1,0 각자 따로 인식됨
