@@ -1,0 +1,23 @@
+7.23
+Transform Position(거리 읽기)
+ transform.position.x 를 통해 x좌표를 float형으로 읽어낼 수 있다.
+
+public class Ball : MonoBehaviour {
+    int count = 1;
+
+    float startingPoint;
+	void Start () {
+        Debug.Log("Start");
+        startingPoint = transform.position.z;
+		//지정한 물체의 좌표를 읽어내는 방법
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        float distance;
+        distance = transform.position.z - startingPoint;
+
+        Debug.Log(distance);
+	}
+ 
+}
