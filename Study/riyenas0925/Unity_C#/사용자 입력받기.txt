@@ -1,0 +1,21 @@
+Input.GetAxis("Horizontal")
+Input.GetAxis("Vertical")
+
+transform.rotation -> 쿼터니언이라는 복잡한 단위
+transform.localEulerAngles
+
+<회전 시키기>
+float zRotation = transform.localEulerAngles.z;
+zrotation = zRotation - Input.GetAxis("Horizontal");
+transform.localEulerAngles = new Vector3(10,0,zRotation)
+
+<점프>
+if(Input.GetKeyDown(KeyCode.Space))	//누르는 순간
+
+//GetKeyDown	누르는 순간
+//GetKeyUp	때는 순간
+//GetKey		누르는 동안
+
+{
+    GetComponent<Rigidbody>().AddForce(Vector3.up*100)
+}
