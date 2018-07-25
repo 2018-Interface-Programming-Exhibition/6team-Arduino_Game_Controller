@@ -1,0 +1,64 @@
+#기초
+기본적으로 생성되는 파일은 setup과 loop로 이루어져 있음.
+-setup : 최초 실행시 한 번 실행됨.
+-loop : main 함수 역할. while문과 같음
+
+#시리얼 통신
+
+Serial.begin(9600);	//숫자는 임의의 포트로 변경 가능.
+
+pinMode(13, [INPUT/INPUT_PULLUP/INPUT_PULLDOWN/OUTPUT]);
+//해당 핀의 번호를 입력. 13번은 기본적인 테스트를 위해 보드 자체에 코딩되어 있음.
+//0,1번은 차후에 다른 용도로 쓰이므로 비워두는 것이 좋음.
+
+if(Serial.available()){		//Serial이 입력되면
+	Serial.println(Serial.read());	//읽어서 출력한다
+}
+
+────────────────────
+
+　　　　　　Write
+　　　　　　　│
+　　　　　　　│
+　  Analog──│──Digital
+　　　　　　　│
+　　　　　　　│
+　　　　　　Read
+
+
+────────────────────
+digitalWrite(13, [1/HIGH/0/LOW]);
+AnalogRead(A0);
+
+
+No line ending
+새 줄
+캐리지 리턴
+
+Serial.parseInt();
+
+#MAP 함수
+
+map(value, fromlow, fromhigh, tolow, tohigh)	//DAC Func.
+
+ex)int mapnum = map(AnalogRead(A0), 0, 1023, 0, 50);
+num1 = mapnum/10;
+num2 = mapnum%10;
+
+Serial.println(num1+"."+num2);
+
+출력 결과
+0.0
+1.1
+2.4
+4.9
+
+**
+Bluetooth 통신으로 문자를 입력받을 시 너무 빨라 문자가 씹히는 것을 막기 위해 
+delay를 추가하여야 한다.
+
+ex)
+...
+Str+=ch;
+delay(5);
+...
