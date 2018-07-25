@@ -1,0 +1,37 @@
+-풀업스위치, 스위치, 풀다운저항, 풀업저항-
+플로팅현상 - 전압이 떠다니는 현상 INPUT_PULLUP or INPUT_PULLDOWN을 사용해야한다
+그라운드에 전압이 흐른채로 스위치를 누르면 아두이노에 데미지를 입음(절대 하지말것)
+
+저항을 연결하면 스위치를 누를때 시리얼 모니터에 1이 나오는 것을 확인 할 수 있음
+
+-LED밝기조절(PWM)-
+전압을 조절해서 밝기를 조절할 수 있음
+analogWrite([포트번호], [밝기]); 를 사용하여 밝기조절 가능 밝기는 0~255까지 가능 256이 되면 0으로 세팅됨
+Serial.println(" 문자 사용" + i);를 썼을 시 이상하게 나옴 -> Serail.println("문자사용" + (String) i);로 형변환을 해야 정상적으로 작동
+
+
+- 시리얼을 통해 값을 전달해 밝기 바꾸기 - 
+시리얼에서 문자열을 그대로 받으면 ascii코드값이 나오기 때문에 함수를 써서 바꿔줘야한다.
+pasrseInt(): 그대로 정수로 출력되게 된다
+
+analogWrite(포트번호, 변수);를 사용하여 변수에 parseInt();를 써서 시리얼 모니터에서 값을 변경하면 밝기가 조절된다.
+
+
+-LED밝기조절(Analog in)-
+Analog in 포트를 연결하여 시리얼 모니터에 Analog value를 받을 수 있음
+포토셀을 통해서 저항의 값을 가져올 수 있다.
+조건문을 사용하여 외부의 밝기에 따라서 켜지고 꺼지게 만들 수 있음
+
+-map 함수 이용하기-
+map( value, fromLow, fromHigh, toLow, toHigh): 현재 들어오는 볼트값을 받을 수 있게 해주는 함수
+
+-스피커로 소리내기-
+toneMelody 예제를 이용
+tone(pin, frequency, duration), notone(pin, frequency, duration): 소리를 나게하는 함수, 소리를 안나게하는 함수
+
+-아두이노와 블루투스 연결-
+블루투스 모듈은 총 4개의 핀 RX핀, TX핀, GRN, VCC핀을 사용한다.
+VCC핀은 아두이노의 5V에, GRN는 GRN, TX와 RX는 핀 아무곳에나 꽂으면 된다.
+헤더파일 #include<SoftwareSerial.h> 필요 - 특정 핀을 TX와 RX로 만드는 파일
+SoftwareSerial객체를 생성해서 매개변수를 TX와 RX로 설정.
+문자열을 보낼때 문자열이 끊어지면서 들어오면 delay를 줘서 해결하자.
