@@ -21,3 +21,78 @@ public class Ball : MonoBehaviour {
 	}
  
 }
+c# 중첩된 if와 bool(거리 출력)
+ bool shouldPrintOver30 = true; //bool은 true와 false값을 갖는다.
+
+public class Ball : MonoBehaviour {
+    bool shouldPrintOver20 = true;
+    bool shouldPrintOver30 = true; //bool은 true와 false값을 갖는다
+
+    float startingPoint;
+	// Use this for initialization
+	void Start () {
+        Debug.Log("Start");
+        startingPoint = transform.position.z;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        float distance;
+        distance = transform.position.z - startingPoint;
+
+        if ( distance >= 30.0) {
+            if (shouldPrintOver30)
+            {
+                Debug.Log("Over 30 " + distance);
+                shouldPrintOver30 = false;
+            }
+        }
+        else if (distance >= 20.0)
+        {
+            if (shouldPrintOver20)
+            {
+                Debug.Log("Distance is " + 20);
+                shouldPrintOver20 = false;
+
+		 //여기서 나는 bool형 변수 shouldPrintOver20을
+ 		   재활용하려 했다 그러나 shouldPrintOver30을 
+		   만드는게 훨씬 쉽다. 코딩할 때 쉽게 생각할것
+            }
+        }
+    
+	}
+ 
+}
+Transform 바꿔보기
+script를 이용해 gameobject의 위치 바꾸기
+transform.position = new Vector3(0, 0, 0); 이렇게 직접입력
+
+GetComponent쓰기
+GetComponent를 통해 컴포넌트의 값을 읽어오고 바꿀 수 있다.
+물리엔진은 콜라이더를 기준으로 동작함
+	Rigidbody myRigidbody = GetComponent<Rigidbody>();//읽어옴,초기화
+	Debug.Log("UseGravity?: " + myRigidbody.useGravity);//읽어온 값을 조작
+
+GameObject를 통해 내가 아닌 다른 Object의 정보를 가져올 수 있음.
+ex) 공을 따라가는 카메라 만들기(스크립트 Camerwork)
+public class Camerawork : MonoBehaviour {
+	Gameobject ball; //전역변수
+	void Start() {
+		ball = GameObject.Find("Ball");
+	}
+	void Update() {
+		transform.position = new Vector (0, 11, ball.transform.position.z - 14);
+	}
+ }
+
+
+
+
+
+
+
+
+
+
+
+
