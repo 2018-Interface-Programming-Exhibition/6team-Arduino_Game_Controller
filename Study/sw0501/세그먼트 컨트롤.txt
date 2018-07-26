@@ -1,0 +1,3 @@
+segment : 7개의 LED로 구성
+unsigned long : 정수
+millis : 딜레이

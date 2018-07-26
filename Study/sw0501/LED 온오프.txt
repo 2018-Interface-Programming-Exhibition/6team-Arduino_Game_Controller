@@ -1,0 +1,5 @@
+void setup : 처음시작할때 한번만 실행
+void loop : 무한반복
+pinmode (변수,입출력)                 // 입력 : input, 출력 : output
+digitalwrite (변수,온오프)              // HIGH = 1 = TRUE = on, LOW = 0 = off
+delay(시간)                                // 지연시간 설정

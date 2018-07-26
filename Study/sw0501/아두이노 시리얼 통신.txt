@@ -1,0 +1,6 @@
+Serial.begin(숫자)           // 시리얼통신을 시작함
+Serial.available()            // 시리얼통신이 가능한지 판단
+Serial.read()                 // 시리얼 내부에 들어있는 값을 읽음
+Serial.println(변수)         // 변수의 값을 출력 + 줄바꿈
+Serial.parsInt()              // 시리얼통신으로 받은 값을 정수로 출력
+void serialEvent(){}        // 시리얼통신에 쓰이는 함수
