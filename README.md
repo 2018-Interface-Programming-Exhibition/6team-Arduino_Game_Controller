@@ -71,19 +71,39 @@
 
 ### a. 작업 폴더
     E:.
-    ├─Datasheet         // 아두이노 부품 데이터 시트
-    ├─Project           // 유니티, 아두이노 프로젝트 폴더
-    ├─Study             // 스터디 개인 폴더
+    ├─Datasheet                 // 아두이노 부품 데이터 시트
+    ├─Project                   // 유니티, 아두이노 프로젝트 폴더
+    │  ├─Arduino_Controller     // 아두이노 스케치
+    │  └─Unity_Game             // 유니티 프로젝트
+    ├─Study                     // 스터디 개인 폴더
     │  ├─jkey20     
     │  ├─nhk9680
     │  ├─riyenas0925
     │  ├─Study_ds
     │  ├─study_hyj
     │  └─sw0501
-    ├─강의 자료          // 아두이노, 유니티 스터디 강의 자료
-    ├─게임 기획          // 게임 기획서
-    └─회의록             // 6팀 회의록
+    ├─강의 자료                 // 아두이노, 유니티 스터디 강의 자료
+    ├─게임 기획                 // 게임 기획서
+    └─회의록                    // 6팀 회의록
 
+E:.
+├─Datasheet
+├─Project
+│  ├─Arduino_Controller
+│  └─Unity_Game
+├─Study
+│  ├─jkey20
+│  ├─nhk9680
+│  ├─riyenas0925
+│  │  ├─air_mouse
+│  │  ├─nunchuk_test
+│  │  └─Unity_C#
+│  ├─Study_ds
+│  ├─study_hyj
+│  └─sw0501
+├─강의 자료
+├─게임 기획
+└─회의록
 ### b. 참고 자료 및 사이트
 * [프로그래밍 전시회 6팀 위키](https://github.com/2018-Interface-Programming-Exhibition/6team-Arduino_Game_Controller/wiki)
     > 기능 개발중 작업 내용 정리
