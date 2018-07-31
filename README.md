@@ -85,25 +85,7 @@
     ├─강의 자료                 // 아두이노, 유니티 스터디 강의 자료
     ├─게임 기획                 // 게임 기획서
     └─회의록                    // 6팀 회의록
-
-E:.
-├─Datasheet
-├─Project
-│  ├─Arduino_Controller
-│  └─Unity_Game
-├─Study
-│  ├─jkey20
-│  ├─nhk9680
-│  ├─riyenas0925
-│  │  ├─air_mouse
-│  │  ├─nunchuk_test
-│  │  └─Unity_C#
-│  ├─Study_ds
-│  ├─study_hyj
-│  └─sw0501
-├─강의 자료
-├─게임 기획
-└─회의록
+    
 ### b. 참고 자료 및 사이트
 * [프로그래밍 전시회 6팀 위키](https://github.com/2018-Interface-Programming-Exhibition/6team-Arduino_Game_Controller/wiki)
     > 기능 개발중 작업 내용 정리
