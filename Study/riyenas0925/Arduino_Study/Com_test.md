@@ -10,7 +10,7 @@
 * 데이터의 속도 bit-per-second(bps)
 * 통신 속도 값은 1200, 2400, 4800, 19200, 38400, 57600,115200
 
-![image](image/UART_ERROR.png)
+![image](image/UART_ERROR.PNG)
 
 #### Framing the data (데이터 구조)
 * 데이터 구조는
