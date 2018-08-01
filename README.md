@@ -3,7 +3,7 @@
 ## 1. 목차
 
 [TOC]
-> Visual Code에서는 [TOC]하면 목차 생성
+> Visual Code에서는 [TOC]하면 목차 생성  
 > Github 마크다운에서의 목차생성은 좀더 찾아봐야함
 
 ## 2. 팀원
