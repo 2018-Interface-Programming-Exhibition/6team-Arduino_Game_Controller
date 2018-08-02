@@ -1,4 +1,10 @@
-7.23
+물리엔진 적용하기
+rigidbody 가 물리성질(중력 등) 컴퍼넌트에서 추가하기
+pysics Material로 튀기기등 물리성질 추가
+collider은 물리성질이 적용되는 주체
+
+
+
 Transform Position(거리 읽기)
  transform.position.x 를 통해 x좌표를 float형으로 읽어낼 수 있다.
 
@@ -67,7 +73,7 @@ Transform 바꿔보기
 script를 이용해 gameobject의 위치 바꾸기
 transform.position = new Vector3(0, 0, 0); 이렇게 직접입력
 
-GetComponent쓰기
+*****************GetComponent쓰기
 GetComponent를 통해 컴포넌트의 값을 읽어오고 바꿀 수 있다.
 물리엔진은 콜라이더를 기준으로 동작함
 	Rigidbody myRigidbody = GetComponent<Rigidbody>();//읽어옴,초기화
@@ -84,6 +90,117 @@ public class Camerawork : MonoBehaviour {
 		transform.position = new Vector (0, 11, ball.transform.position.z - 14);
 	}
  }
+unit 5: 사용자 입력
+
+화살표입력 그라운드회전 
+	Input.GetAxis("Horizontal"); //상 하는 Vertical 이용
+	새로운 rotation 읽어오기.
+	마치 도와 라디안의 개념처럼 각도를 정수로 읽는 방법
+	transform.localEulerAngles.z(또는 x, 또는 y)
+	즉, 로컬오일러앵글스는 로테이션과 같은 개념임
+
+키입력 공 점프
+	Input.GetKeyDown(KeyCode.space) 이것이 True나 False 값으로 출력되나봄
+	눌린것		GetKeyDown
+	눌리고 땐것	GetKeyUp
+	누른 상태	GetKey
+	강의 <<유닛 5 - 키 입력받기>> 1분14초 참조
+	Rigidbody 는 GameObject 가 물리 제어로 동작하게 합니다. 
+	리지드바디는 힘과 토크를 받아 오브젝트가 사실적으로 움직이도록 
+	해줍니다. 리지드바디가 포함된 모든 게임 오브젝트는 중력의 영향
+	을 받아야 하며 스크립팅을 통해 가해진 힘으로 움직이거나 NVIDIA PhysX
+	 물리 엔진을 통해 다른 오브젝트와 상호 작용해야 합니다.
+ 	
+	리지드바디는 
+	https://docs.unity3d.com/kr/2017.4/Manual/class-Rigidbody.html 을 
+	직접 보는게 좋으며 충돌,마찰,중력등을 다루는듯 하다.
+	빛의 굴절 등을 다룰 수 있는지는 모르겠다.
+
+	자신의 정보를 가져올 때
+		편의상 모든 변수명은 a로 함
+	1. transform 가져올 때(기억이 안나용)
+	float a = transform.position.x
+	float a = transform.localEulerAngles.x
+
+	2.Rigidbody
+	//rigidbody정보를 담을 변수를 선언한다,GetComponent로 초기화한다.
+	Rigidbody a = GetComponent<Rigidbody>();
+	
+	//component(컴포넌트란 rigidbody나 transform같은 요소를 말함) 내부의 정보(내부정보는 예를들면 transform의 positione, rigidbody의 use gravity)
+	//를 읽어낼 수 있음 예를들어 use gravity값
+	a.useGravity 를 통해 True,False 값을 받을 수 있음.
+	
+	3.SphereCollider
+	//SphereCollider은 물리성질이 실질적으로 적용되게하는 컴포넌트임
+	//스피어콜린더정보를 담을 변수를 선언한다, 이 또한 GetComponent로 초기화 한다.
+	SphereCollider a = GetComponent<SphereCollider>();
+	
+	//component 내부의 정보인 radius를 변경해보자
+	a.radius = a + 0.005;
+
+	위 세가지 경우를 통해
+	자신의 정보를 코드로 통제할 때는
+	<<component정보를 받은 변수명.내부정보명>>의 형식임을 알 수 있고
+	component정보를 저장하는 변수는 GetComponent를 이용해 초기화 하며
+	변수의 형은 component이름과 같음을 알 수 있다.
+
+또한 자신이 아닌 다른 게임오브젝트를 통제할때도(예시는 카메라가 공을 통제(?)하고 싶을때이다)
+	1. 게임 오브젝트 정보를 담을 변수 만들기
+	
+	GameObject a; //전역변수선언
+	void Start() {
+			a = GameObject.Find("Ball");
+		}
+	void Update() {
+			float b = a.transform.position.x
+		}
+	2. 위의 코드를 보면 알 수 있듯이 
+	자신의 정보를 읽어올 때와 비슷한 형식임을 알 수 있다.
+	즉,<<gameobject정보를 받은 변수명.component정보를 받은 변수명.내부정보명>>
+
+
+Local position 이란 부모에 대한 상대적 위치를 뜻한다.
+
+충돌체 확인하기
+	1. 충돌할때 실행되는 함수
+	void OnCollisionEnter(Collision collision){}
+	2. 충돌체 정보 인용하기
+	예를들어 충돌체 이름을 출력한다 하면
+	void OnCollisionEnter (Collision a) {
+	     Debug.Log(collision.gameobject.name);
+	    }
+	즉 인용해야하는 정보의 이름대신(ex)ball.transform.position)
+	collision.gameobject를 앞에 쓴다.
+
+
+게임 구역 지정하기
+	1. 지정 구역을 지나칠때 실행되는 함수
+	(구역 지정시 그 오브젝트의 콜라이더를 해제하는것이 아니라
+	콜라이더의 Is Trigger을 선택할것)
+	void OnTriggerEnter (Collider collider) {}
+	사용예시
+	void OnTriggerEnter (Collider other){
+	Debug.Log(other.gameObject.name);
+	}
+	2. 지정구역 지나친것이 공인지 확인
+	if(collider == "Ball"){}이라 하면 안됨 name을 추가해야 string형과 비교가능
+	if(collider.gameObject.name == "Ball"){}
+
+실행조건을 만족했을때 많은 gameobject를 한번에 통제하려면?? -->Tag를 이용하자
+	다수의 gameobject를 선택해 같은 tag로 설정한다.
+	
+	1. 스크립트에서 tag를 찾는방법
+	GameObject [] a = gameObject.FindObjectsWithTag("tag이름");
+		(위는 배열 a를 선언하는 방법임)
+	2. 태그된 것들을 파괴한다 가정하면 코드는?
+	for (int i = 0; i < a.Length ; i++){
+	    Destroy(a[i]);
+	}
+
+
+
+
+
 
 
 
