@@ -1,0 +1,61 @@
+
+
+장애물 이동
+변수에 transform.position.x 를 대입하고 
+new Vector3(x,y,z) 를 이용하여 위치를 변경시킬수 있다
+물체의 위치에따라 속도조절,방향변경을 할 경우
+변수를 하나 더 선언하여 기준으로 잡고 가능
+
+	[x축을 움직이는 장애물]
+	float delta = 0.1f
+	float newXPosition = transform.position.x - delta;
+	transform.position.x = new Vector3(newXPosition, y , z);
+	if (transform.position.x > 1.0)(delta = 0.1f);
+	else if (transform.position.x < -1.0)(delta = -0.1f);
+
+스크립트에서 컴포넌트 변경
+
+	[Rigidbody 출력]
+	Rigidbody newRigidbody = GetComponent<Rigidbody>();
+	Debug.log(newRigidbody.원하는컴포넌트) 를 통해 출력할 수 있음
+	
+	[Collider 변경]
+	SphereCollider newCollider = GetComponent<SphereCollider >();
+	newCollider.radious = newCollider.radious + 0.3f;
+
+시점 전환
+	[카메라가 물체를 따라서 이동]
+	main camera 에 스크립트 입력
+	Gameobject ball;
+	ball = Gameobject.Find("Ball");
+	transform.position = new Vector3(x,y,z)
+
+사용자 입력 받기
+	[입력을 받아 물체를 회전]
+	float zRotation = transform.localEulerAngles.z;
+	zRotation = zRotation - Input.GetAxis("Horizontal");
+	transform.localEulerAngles = new Vector3(0, 0, zRotation);
+
+물체가 사용자의 입력을 받아 이동
+	[키를 입력하여 물체를 이동 (wasd space)]
+	if (Input.GetKeyDown (KeyCode.Space)){ 
+	GetComponent<Rigidbody>().AddForce(Vector3.up * 500) ; }
+  	else if (Input.GetKeyUp(KeyCode.Space)){
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 0) ; }
+    	if (Input.GetKeyDown(KeyCode.W)) {
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * 1000) ; }
+     	else if (Input.GetKeyUp(KeyCode.W)){
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * 0) ; }
+     	if (Input.GetKeyDown(KeyCode.S)){
+            GetComponent<Rigidbody>().AddForce(Vector3.back * 1000);}
+       	else if (Input.GetKeyUp(KeyCode.S)){
+            GetComponent<Rigidbody>().AddForce(Vector3.back * 0);}
+   	if (Input.GetKeyDown(KeyCode.A)){
+            GetComponent<Rigidbody>().AddForce(Vector3.left * 1000);}
+     	else if (Input.GetKeyUp(KeyCode.A)){
+            GetComponent<Rigidbody>().AddForce(Vector3.left * 0);}
+     	if (Input.GetKeyDown(KeyCode.D)){
+            GetComponent<Rigidbody>().AddForce(Vector3.right * 1000);}
+     	else if (Input.GetKeyUp(KeyCode.D)){
+            GetComponent<Rigidbody>().AddForce(Vector3.right * 0);}
+	키보드를 때고난 후에 가해지는 힘을 처리하는 방법은 찾아봐야됨
