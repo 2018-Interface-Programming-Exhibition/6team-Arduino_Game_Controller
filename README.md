@@ -15,7 +15,7 @@
 | 박동섭 | 31기 | 국방시스템공학과 | [0WILLE0](https://github.com/0WILLE0)| 제작 시스템 |
 | 박상욱 | 31기 | 전자정보통신공학과 | [sw0501](https://github.com/sw0501)| 우연한 탈출 게임 |
 | 주이식 | 29기 | 컴퓨터공학과 | [jkey20](https://github.com/jkey20)| 착시현상을 이용한 게임 |
-| 황유진 | 31기 | 지능기전공학과 | [hyj378](https://github.com/hyj378)| 빛과 거울을 이용한 게임 |
+| 황유진 | 31기 | 지능기전공학부 | [hyj378](https://github.com/hyj378)| 빛과 거울을 이용한 게임 |
 
 ---
 
