@@ -11,7 +11,7 @@
 |이름|기수|학과|github ID|담당 파트|
 |:----:|:----:|:----:|:----:|:----|
 | 강동민 | 30기 | 전자정보통신공학과 | [riyenas0925](https://github.com/riyenas0925)| 동물과 함께하는 협동 게임 |
-| 김남훈 | 30기 |  | [nhk9680](https://github.com/nhk9680)| 큐브로드(포탈) |
+| 김남훈 | 30기 | 스마트기기공학전공 | [nhk9680](https://github.com/nhk9680)| 큐브로드(포탈) |
 | 박동섭 | 31기 | 국방시스템공학과 | [0WILLE0](https://github.com/0WILLE0)| 제작 시스템 |
 | 박상욱 | 31기 | 전자정보통신공학과 | [sw0501](https://github.com/sw0501)| 우연한 탈출 게임 |
 | 주이식 | 29기 | 컴퓨터공학과 | [jkey20](https://github.com/jkey20)| 착시현상을 이용한 게임 |
