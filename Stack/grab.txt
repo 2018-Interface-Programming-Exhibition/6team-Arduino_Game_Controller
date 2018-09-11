@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class grab : MonoBehaviour {
+
+    GameObject box;
+    Transform boxPosition;
+    public bool grabing = false;
+    CapsuleCollider cc;
+
+    void OnTriggerEnter(Collider other)
+    {
+        box = GameObject.Find("Box");
+        boxPosition = box.GetComponent<Transform>();
+
+        if (grabing == false)
+        {
+            grabing = true;
+            if (Input.mousePosition==)
+            {
+                if (Input.GetKeyDown("f"))
+                {
+                    boxPosition.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 1);
+                }
+            }
+        }
+
+        if (grabing == true)
+        {
+            
+        }
+    }
+
+    void droping()
+    {
+        box = GameObject.Find("Box");
+        boxPosition = box.GetComponent<Transform>();
+
+        if (grabing == true)
+        {
+            grabing = false;
+            boxPosition.position = new Vector3();
+
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
+      
+	}
+	
+	// Update is called once per frame
+	void Update () {
+      
+	}
+}
