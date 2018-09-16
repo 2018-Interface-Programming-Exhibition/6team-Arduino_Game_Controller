@@ -9,10 +9,7 @@ public class follow_camera : MonoBehaviour {
     // Use this for initialization
     void LateUpdate()//가장 마지막에 업데이트 된다. 맨 마지막에 구성이 다 되고 플레이어를 따라 움직이게 하기 위함.
     {
-        float cangle = Mathf.LerpAngle(tr.eulerAngles.y, p.eulerAngles.y, smooth * Time.deltaTime);
-        Quaternion rot = Quaternion.Euler(0, cangle, 0);
-        tr.position = p.position - (rot * Vector3.forward * 10) + (Vector3.up * 5);
-        tr.LookAt(p);
+        
     }
 
     void Start () {
@@ -21,6 +18,9 @@ public class follow_camera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        float cangle = Mathf.LerpAngle(tr.eulerAngles.y, p.eulerAngles.y, smooth * Time.deltaTime);
+        Quaternion rot = Quaternion.Euler(1, cangle, 1);
+        tr.position = p.position;
+        tr.LookAt(p);
+    }
 }
