@@ -9,14 +9,14 @@ public class GMscript : MonoBehaviour {
     public GameObject FPC;//캐릭터 컨트롤러 지정변수
     public bool Cvision;//커서 보이게 하는 변수,락도 설정함.
     public FirstPersonController firstPersonController;
-    public Camera maincamera;
+    public GameObject ReturnHome;//홈화면으로 돌아가기
 
     
 void Start () {
         InvenOpen(false);
         Cvision = false;
         ItemMessage.active = false;
-        maincamera.enabled = true;
+        
         
         
         
@@ -25,7 +25,7 @@ void Start () {
 	
 	// Update is called once per frame
 	void Update () {
-        maincamera.enabled = true;
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (invenCG.alpha == 0)
@@ -52,5 +52,6 @@ void Start () {
         invenCG.alpha = (open) ? 1.0f : 0.0f;
         invenCG.interactable = open;
         invenCG.blocksRaycasts = open;
+        ReturnHome.active = open;
     }
 }
