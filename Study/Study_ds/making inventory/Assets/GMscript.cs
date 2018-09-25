@@ -8,14 +8,14 @@ public class GMscript : MonoBehaviour {
     public CanvasGroup invenCG;//인벤 켄버스그룹 구성성분 저장변수
     public GameObject FPC;//캐릭터 컨트롤러 지정변수
     public bool Cvision;//커서 보이게 하는 변수,락도 설정함.
-    public FirstPersonController firstPersonController;
+    public bool mouse;//마우스커서 컨트롤변수
     public GameObject ReturnHome;//홈화면으로 돌아가기
-
-    
+  
 void Start () {
         InvenOpen(false);
         Cvision = false;
         ItemMessage.active = false;
+        mouse = true;
         
         
         
@@ -31,13 +31,13 @@ void Start () {
             if (invenCG.alpha == 0)
             {
                 InvenOpen(true);
-                firstPersonController.enabled = false;
+                mouse = false;
                 Cvision = true;
             }
             else
             {
                 InvenOpen(false);
-                firstPersonController.enabled = true;
+                mouse = true;
                 Cvision = false;
             }
         }
