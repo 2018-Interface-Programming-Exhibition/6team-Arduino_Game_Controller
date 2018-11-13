@@ -23,7 +23,8 @@ public class Itembehave : MonoBehaviour {
         }
         if (holding)
         {
-            Item.transform.localPosition = new Vector3(0, 0.1f, 0.7f);
+            Item.transform.localPosition = new Vector3(0, 0.1f, 1.5f);
+            
             if (Input.GetMouseButton(0))
             {
                 Item.transform.parent = null;
