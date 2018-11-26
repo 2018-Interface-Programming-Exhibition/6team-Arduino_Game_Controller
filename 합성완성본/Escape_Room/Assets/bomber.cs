@@ -5,6 +5,7 @@ using UnityEngine;
 public class bomber : MonoBehaviour {
     public GameObject trap;
     public Transform respawn;
+    //플레이어와 부딪히면 색변하고 플레이어는 제자리로 돌아옴
     void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
