@@ -41,7 +41,7 @@ public class repel : MonoBehaviour {
             //유저 위치 변경 User.transform.position = new Vector3()
         }
         //플레이어가 기둥을 타고 내려갈때 f키를 누르면 위치변경
-        if(repeluse == true&&Input.GetKeyDown("f"))
+        if(repeluse == true&&Input.GetMouseButton(0))
         {
             User.transform.position = department.position;
         }
