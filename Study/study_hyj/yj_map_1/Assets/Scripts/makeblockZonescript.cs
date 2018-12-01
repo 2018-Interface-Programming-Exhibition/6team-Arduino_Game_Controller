@@ -40,7 +40,7 @@ public class makeblockZonescript : MonoBehaviour {
     IEnumerator StartCo()
     {
         while (true) {
-            yield return new WaitForSeconds(0.3f);//5초
+            yield return new WaitForSeconds(0.1f);//5초
             //Random.seed = (int)System.DateTime.Now.Ticks + 999;
             //Debug.Log("time is " + Random.seed);
             int i;
