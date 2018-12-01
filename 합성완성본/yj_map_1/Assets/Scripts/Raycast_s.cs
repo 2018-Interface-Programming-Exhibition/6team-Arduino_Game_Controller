@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Raycast_s : MonoBehaviour {
+public class Raycast_s : MonoBehaviour
+{
     public int catch_block;
 
     void OnCreate() { }
@@ -27,9 +28,10 @@ public class Raycast_s : MonoBehaviour {
         }
     }
 
-    void Start () {	}
-	
-	void Update () {
+    void Start() { }
+
+    void Update()
+    {
         float maxDistance = 500;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
@@ -39,6 +41,6 @@ public class Raycast_s : MonoBehaviour {
             else
                 catch_block = 0;
         }
-        
+
     }
 }
