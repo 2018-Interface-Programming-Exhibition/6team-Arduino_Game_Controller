@@ -1,14 +1,24 @@
 #include <Wire.h>
 #include <Mouse.h>
+#include <Keyboard.h>
 #include "Kalman.h"
  
-int16_t gyroX, gyroZ;
+int gyroX, gyroZ;
  
-int Sensitivity = 600;
-int delayi = 3;
- 
+int Sensitivity = 400;
+int keydelay = 30;
+int loopdelay = 3;
+
 uint32_t timer;
 uint8_t i2cData[14]; // Buffer for I2C data
+
+void JoyStick(int JoyX, int JoyY){
+  (JoyX < 100) ? Keyboard.press('a') : Keyboard.release('a');
+  (JoyX > 500) ? Keyboard.press('d') : Keyboard.release('d');
+
+  (JoyY < 100) ? Keyboard.press('w') : Keyboard.release('w');
+  (JoyY > 500) ? Keyboard.press('s') : Keyboard.release('s');
+}
  
 void setup() {
   Serial.begin(9600);
@@ -42,13 +52,26 @@ void loop() {
  
   gyroX = gyroX / Sensitivity / 1.1  * -1;
   gyroZ = gyroZ / Sensitivity  * -1;
- 
-  Serial.print("\t");
-  Serial.print(gyroX);
-  Serial.print(gyroZ);
- 
+
   Mouse.move(gyroZ, gyroX);
- 
-  Serial.print("\r\n");
-  delay(delayi);
+
+  int JoyX = analogRead(A0);
+  int JoyY = analogRead(A1);
+  
+  JoyStick(JoyX, JoyY);
+
+  //시리얼 출력부분
+
+  Serial.println("=================================");
+  Serial.print("gyroX : ");
+  Serial.print(gyroX);
+  Serial.print(" ");
+  Serial.print("gyroZ : ");
+  Serial.println(gyroZ);
+  Serial.println("F Button : ");
+  Serial.println("I Button : ");
+  Serial.println("Space Button : ");
+  Serial.println("=================================");
+
+  delay(loopdelay);  
 }
